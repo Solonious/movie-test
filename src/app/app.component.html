@@ -1,0 +1,15 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<mat-toolbar color="primary">
+  <span>{{appTitle}}</span>
+</mat-toolbar>
+
+<ul class="menu">
+  <li *ngFor="let item of links">
+    <button mat-fab  [routerLink]="item.path">
+      <mat-icon >{{item.type}}</mat-icon>
+    </button>
+    <p>{{item.label}}</p>
+  </li>
+</ul>
+
+<router-outlet></router-outlet>
