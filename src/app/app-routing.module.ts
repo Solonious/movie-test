@@ -8,8 +8,7 @@ import {PopularComponent} from './containers/popular/popular.component';
 
 const routes: Routes = [
   {
-    path: '',
-    component: AppComponent,
+    path: '', redirectTo: 'popular', pathMatch: 'full'
   },
   {
     path: 'popular',

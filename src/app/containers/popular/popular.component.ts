@@ -20,10 +20,27 @@ export class PopularComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    this.subscription.push(this.api.getData('discover/movie?sort_by=popularity.desc')
-      .subscribe(val => this.popular = val));
-    this.subscription.push(this.api.getData('genre/movie/list?language=en-US')
-      .subscribe(val => this.genres = val));
+    this.api.getData('discover/movie?sort_by=popularity.desc')
+      .toPromise()
+      .then(val => {
+        this.popular = val;
+      })
+      .then(() => this.api.getData('genre/movie/list?language=en-US')
+        .toPromise()
+        .then(genre => {
+        this.genres = genre;
+
+        this.popular['results'].forEach(movie => {
+          movie['genreNames'] = [];
+          movie.genre_ids.forEach(id => {
+            this.genres['genres'].forEach(item => {
+              if (item.id === id) {
+                movie['genreNames'].push(item.name);
+              }
+            });
+          });
+        });
+      }));
     this.imageUrl = this.dbService.getConfig().imageApiUrl;
   }
 

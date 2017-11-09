@@ -5,9 +5,9 @@
     <mat-grid-tile *ngFor="let item of data">
       <mat-card  class="example-card">
         <img mat-card-image src={{imageUrl}}{{item.poster_path}} alt="Poster photo">
-        <mat-card-content>
-          <h2>{{item.original_title}}</h2>
-          <a *ngFor="let genre of item.genres">{{genre.name}}</a>
+        <mat-card-content *ngIf="genres">
+          <h3 class="movie-name">{{item.original_title}}</h3>
+          <a *ngFor="let genre of item.genreNames">{{genre}} </a>
         </mat-card-content>
         <mat-card-actions>
           <button mat-button>LIKE</button>
