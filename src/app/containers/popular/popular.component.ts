@@ -3,6 +3,8 @@ import { ApiService } from '../../services/api/api.service';
 import {Subscription} from 'rxjs/Subscription';
 import {MovieDbService} from '../../services/movie-db/movie-db.service';
 
+import 'rxjs/add/operator/toPromise';
+
 @Component({
   selector: 'app-popular',
   templateUrl: './popular.component.html',

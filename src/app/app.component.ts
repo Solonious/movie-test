@@ -10,24 +10,38 @@ export class AppComponent implements OnInit {
   appTitle = 'My Home Movie STORE';
   links = [
     {
+      label: 'user',
+      path: 'user',
+      icon: 'face',
+      type: 'icon'
+    },
+    {
       label: 'popular',
       path: 'popular',
-      type: 'star'
+      icon: 'star',
+      type: 'btn',
+      color: 'accent'
     },
     {
       label: 'favorites',
       path: 'favorites',
-      type: 'favorites'
+      icon: 'favorites',
+      type: 'btn',
+      color: 'warn'
     },
     {
       label: 'search',
       path: 'search',
-      type: 'search'
+      icon: 'search',
+      type: 'btn',
+      color: 'primary'
     },
     {
       label: 'wishlist',
       path: 'wishlist',
-      type: 'list'
+      icon: 'list',
+      type: 'btn',
+      color: 'basic'
     }];
   movieDbConfig: { apiKey: string; apiUrl: string };
 

@@ -1,17 +1,23 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<mat-toolbar color="primary">
-  <span>{{appTitle}}</span>
-</mat-toolbar>
+<!--<mat-toolbar color="primary">-->
+  <!--<span>{{appTitle}}</span>-->
+<!--</mat-toolbar>-->
 
 <div class="container">
-  <ul class="menu">
-    <li *ngFor="let item of links">
-      <button mat-fab  [routerLink]="item.path">
-        <mat-icon >{{item.type}}</mat-icon>
-      </button>
-      <p>{{item.label}}</p>
-    </li>
-  </ul>
+  <mat-card class="menu-card">
+    <ul class="menu">
+      <li *ngFor="let item of links">
+        <button *ngIf="item.type === 'btn'" mat-fab  color="{{item.color}}" [routerLink]="item.path">
+          <mat-icon >{{item.icon}}</mat-icon>
+        </button>
+        <i *ngIf="item.type === 'icon'" class="material-icons md-48">{{item.icon}}</i>
+        <!--<mat-icon >{{item.icon}}</mat-icon>-->
+        <p>{{item.label}}</p>
+      </li>
+    </ul>
+  </mat-card>
+
+
   <div class="content">
     <router-outlet></router-outlet>
   </div>
