@@ -8,9 +8,12 @@ import { MovieDbService } from '../../services/movie-db/movie-db.service';
 })
 export class FavoritesComponent implements OnInit {
 
+  imageUrl: string;
   constructor(private dbService: MovieDbService) { }
 
   ngOnInit() {
+    this.imageUrl = this.dbService.getConfig().imageApiUrl;
+
   }
 
 }

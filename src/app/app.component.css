@@ -9,3 +9,8 @@
 .menu li {
   margin: 30px;
 }
+.content {
+  width: 90%;
+  float: right;
+  margin: 10px;
+}

@@ -7,7 +7,8 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class MovieCardComponent implements OnInit {
 
-  @Input() data: any[];
+  @Input() data?: any[];
+  @Input() imageUrl?: string;
   constructor() { }
 
   ngOnInit() {

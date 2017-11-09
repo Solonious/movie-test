@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-import { MDBApiKey, MDBApiUrl } from './movie-db.config';
+import { MDBApiKey, MDBApiUrl, MDBApiImageUrl } from './movie-db.config';
 
 @Injectable()
 export class MovieDbService {
@@ -9,11 +8,13 @@ export class MovieDbService {
 
   private apiUrl = MDBApiUrl;
 
-  constructor(private http: Http) { }
+  private imageApiUrl = MDBApiImageUrl;
+
+  constructor() { }
 
   getConfig() {
-    const { apiKey, apiUrl } = this;
-    return { apiKey, apiUrl };
+    const { apiKey, apiUrl, imageApiUrl } = this;
+    return { apiKey, apiUrl, imageApiUrl };
   }
 
 }
