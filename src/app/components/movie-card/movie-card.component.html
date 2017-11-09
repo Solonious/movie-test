@@ -1,18 +1,19 @@
 
-    <!--<mat-grid-tile *ngFor="let item of data"><img src={{imageUrl}}{{item.poster_path}} alt=""></mat-grid-tile>-->
-
-  <mat-grid-list  cols="5" rowHeight="2:4">
+<mat-grid-list  cols="5" rowHeight="1:2">
     <mat-grid-tile *ngFor="let item of data">
       <mat-card  class="example-card">
+        <button class="add-to-favorite" mat-icon-button>
+          <mat-icon color="basic">favorite</mat-icon>
+        </button>
         <img mat-card-image src={{imageUrl}}{{item.poster_path}} alt="Poster photo">
         <mat-card-content *ngIf="genres">
-          <h3 class="movie-name">{{item.original_title}}</h3>
+          <h4 class="movie-name">{{item.original_title}}</h4>
           <a *ngFor="let genre of item.genreNames">{{genre}} </a>
         </mat-card-content>
-        <mat-card-actions>
-          <button mat-button>LIKE</button>
-          <button mat-button>SHARE</button>
-        </mat-card-actions>
+        <!--<mat-card-actions>-->
+          <!--<button mat-button>LIKE</button>-->
+          <!--<button mat-button>SHARE</button>-->
+        <!--</mat-card-actions>-->
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>

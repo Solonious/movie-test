@@ -1,3 +1,26 @@
 .movie-name {
   text-transform: uppercase;
+  line-height: 1;
+}
+.example-card:hover {
+  cursor: pointer;
+  opacity: 0.5;
+  filter: grayscale(3);
+  transition: 500ms;
+}
+.mat-card {
+  margin: 5px;
+  min-height: 500px;
+  position: relative;
+}
+.mat-card:hover .add-to-favorite {
+  display: block;
+  transition: 600ms;
+}
+.add-to-favorite {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  right: 10px;
 }
