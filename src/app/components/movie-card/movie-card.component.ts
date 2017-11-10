@@ -1,4 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
+import {Movie} from '../../models/movie';
+import {Genre} from '../../models/genre';
 
 @Component({
   selector: 'app-movie-card',
@@ -7,28 +9,15 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class MovieCardComponent implements OnInit {
 
-  @Input() data?: any[];
+  @Input() data?: Movie[];
   @Input() imageUrl?: string;
-  @Input() genres?: any[];
+  @Input() genres?: Genre[];
+  @Output() selectedMovie = new EventEmitter<Movie>();
   constructor() { }
 
   ngOnInit() {}
 
-  // convertToObject(arr: number[], arrObj: Object[]): Object[] {
-  //   console.log(arr);
-  //   let obj = {};
-  //   let result = [];
-  //   arr.forEach(id => {
-  //     arrObj.forEach(item => {
-  //       if (item['id'] === id) {
-  //         obj['id'] = id;
-  //         obj['name'] = item['name'];
-  //       }
-  //     });
-  //     result.push(obj);
-  //   });
-  //   console.log(result);
-  //   return result;
-  // }
-
+  onClick(item): void {
+    this.selectedMovie.emit(item);
+  }
 }

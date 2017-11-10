@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Movie} from '../../models/movie';
 
 @Component({
   selector: 'app-wishlist',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WishlistComponent implements OnInit {
 
+  wishLists: Movie[];
   constructor() { }
 
   ngOnInit() {

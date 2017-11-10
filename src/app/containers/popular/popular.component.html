@@ -1,1 +1,3 @@
-<app-movie-card [data]="popular.results" [imageUrl]="imageUrl" [genres]="genres"></app-movie-card>
+<div *ngIf="popular">
+  <app-movie-card [data]="popular.results" [imageUrl]="imageUrl" [genres]="genres"></app-movie-card>
+</div>

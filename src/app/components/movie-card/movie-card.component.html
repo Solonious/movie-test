@@ -1,8 +1,11 @@
 <div *ngIf="data">
   <mat-grid-list  cols="5" rowHeight="1:2">
-    <mat-grid-tile *ngFor="let item of data">
+    <mat-grid-tile *ngFor="let item of data; let i=index">
       <mat-card  class="example-card">
-        <img class="add-to-favorite" src="../../../assets/like.svg"/>
+        <!--<img class="add-to-favorite" src="../../../assets/like.svg"/>-->
+        <button [class.active]="isActiveBtn" mat-icon-button class="add-to-favorite" (click)="onClick(item)">
+          <mat-icon >favorite</mat-icon>
+        </button>
         <img mat-card-image src={{imageUrl}}{{item.poster_path}} alt="Poster photo">
         <mat-card-content *ngIf="genres">
           <h4 class="movie-name">{{item.original_title}}</h4>

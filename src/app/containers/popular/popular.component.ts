@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import { ApiService } from '../../services/api/api.service';
-import {Subscription} from 'rxjs/Subscription';
+// import {Subscription} from 'rxjs/Subscription';
 import {MovieDbService} from '../../services/movie-db/movie-db.service';
 
 import {Popular} from '../../models/popular';
@@ -15,7 +15,7 @@ import 'rxjs/add/operator/toPromise';
 })
 export class PopularComponent implements OnInit, OnDestroy {
 
-  subscription: Subscription[] = [];
+  // subscription: Subscription[] = [];
   popular: Popular;
   genres: Genre[];
   imageUrl: string;
@@ -50,7 +50,6 @@ export class PopularComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.subscription.forEach(item => item.unsubscribe());
   }
 
 }
