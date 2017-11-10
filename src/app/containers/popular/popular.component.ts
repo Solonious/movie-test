@@ -3,6 +3,9 @@ import { ApiService } from '../../services/api/api.service';
 import {Subscription} from 'rxjs/Subscription';
 import {MovieDbService} from '../../services/movie-db/movie-db.service';
 
+import {Popular} from '../../models/popular';
+import {Genre} from '../../models/genre';
+
 import 'rxjs/add/operator/toPromise';
 
 @Component({
@@ -13,8 +16,8 @@ import 'rxjs/add/operator/toPromise';
 export class PopularComponent implements OnInit, OnDestroy {
 
   subscription: Subscription[] = [];
-  popular: any[];
-  genres: any[];
+  popular: Popular;
+  genres: Genre[];
   imageUrl: string;
   constructor(
     private api: ApiService,

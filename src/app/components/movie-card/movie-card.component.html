@@ -1,24 +1,26 @@
-
-    <!--<mat-grid-tile *ngFor="let item of data"><img src={{imageUrl}}{{item.poster_path}} alt=""></mat-grid-tile>-->
-
-  <mat-grid-list  cols="5" rowHeight="2:4">
-
+<div *ngIf="data">
+  <mat-grid-list  cols="5" rowHeight="1:2">
     <mat-grid-tile *ngFor="let item of data">
       <mat-card  class="example-card">
-        <button class="add-to-favorite" mat-icon-button>
-          <mat-icon color="basic">favorite</mat-icon>
-        </button>
+        <img class="add-to-favorite" src="../../../assets/like.svg"/>
         <img mat-card-image src={{imageUrl}}{{item.poster_path}} alt="Poster photo">
         <mat-card-content *ngIf="genres">
           <h4 class="movie-name">{{item.original_title}}</h4>
-          <a *ngFor="let genre of item.genreNames">{{genre}} </a>
-          <star-rating-comp [numOfStars]="6" [showHalfStars]="true" [readOnly]="true" [starType]="'svg'" [size]="'small'" [rating]="item.vote_average"></star-rating-comp>
-
+          <div class="genre-content">
+            <a *ngFor="let genre of item.genreNames">{{genre}} </a>
+          </div>
+          <star-rating-comp class="star-rating"
+                            [numOfStars]="10"
+                            [labelText]="item.vote_average"
+                            labelPosition="right"
+                            [showHalfStars]="true"
+                            [readOnly]="true"
+                            [starType]="'svg'"
+                            [size]="'medium'"
+                            [rating]="item.vote_average"></star-rating-comp>
         </mat-card-content>
-        <!--<mat-card-actions>-->
-          <!--<button mat-button>LIKE</button>-->
-          <!--<button mat-button>SHARE</button>-->
-        <!--</mat-card-actions>-->
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>
+</div>
+
