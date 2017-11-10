@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieDbService } from './services/movie-db/movie-db.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,7 +8,6 @@ import { MovieDbService } from './services/movie-db/movie-db.service';
 })
 export class AppComponent implements OnInit {
 
-  appTitle = 'My Home Movie STORE';
   links = [
     {
       label: 'user',
@@ -43,9 +43,11 @@ export class AppComponent implements OnInit {
       type: 'btn',
       color: 'basic'
     }];
-  movieDbConfig: { apiKey: string; apiUrl: string };
+  movieDbConfig: { apiKey: string; apiUrl: string; imageApiUrl: string };
 
-  constructor(private movieDbService: MovieDbService) {}
+  constructor(
+    private movieDbService: MovieDbService
+    ) {}
 
   ngOnInit() {
     this.movieDbConfig = this.movieDbService.getConfig();

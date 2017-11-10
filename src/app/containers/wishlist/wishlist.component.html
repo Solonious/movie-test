@@ -1,3 +1,4 @@
-<div *ngIf="wishLists"></div>
-<app-movie-card></app-movie-card>
+<div *ngIf="wishLists">
+  <app-movie-card [data]="wishLists" [imageUrl]="imageUrl" [genres]="genres"></app-movie-card>
+</div>
 

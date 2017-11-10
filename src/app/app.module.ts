@@ -14,6 +14,7 @@ import { MovieCardComponent } from './components/movie-card/movie-card.component
 import { PopularComponent } from './containers/popular/popular.component';
 import {ApiService} from './services/api/api.service';
 import { StarRatingModule } from 'angular-star-rating';
+import {LocalStorageService} from './services/local-storage.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { StarRatingModule } from 'angular-star-rating';
     MaterialModule,
     StarRatingModule.forRoot()
   ],
-  providers: [MovieDbService, ApiService],
+  providers: [MovieDbService, ApiService, LocalStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

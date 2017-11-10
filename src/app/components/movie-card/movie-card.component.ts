@@ -15,7 +15,8 @@ export class MovieCardComponent implements OnInit {
   @Output() selectedMovie = new EventEmitter<Movie>();
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   onClick(item): void {
     this.selectedMovie.emit(item);
