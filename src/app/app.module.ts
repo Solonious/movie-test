@@ -13,6 +13,7 @@ import { SearchComponent } from './containers/search/search.component';
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
 import { PopularComponent } from './containers/popular/popular.component';
 import {ApiService} from './services/api/api.service';
+import { StarRatingModule } from 'angular-star-rating';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {ApiService} from './services/api/api.service';
     BrowserModule,
     HttpModule,
     AppRoutingModule,
-    MaterialModule
+    MaterialModule,
+    StarRatingModule.forRoot()
   ],
   providers: [MovieDbService, ApiService],
   bootstrap: [AppComponent]
