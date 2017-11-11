@@ -24,7 +24,6 @@ export class WishlistComponent implements OnInit {
     this.genres = this.localStorage.getDataFromStorage('genres');
 
     this.wishLists = this.localStorage.getDataFromStorage('wishList');
-    console.log(this.wishLists);
   }
 
 }

@@ -1,8 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import { ApiService } from '../../services/api/api.service';
-// import {Subscription} from 'rxjs/Subscription';
 import {MovieDbService} from '../../services/movie-db/movie-db.service';
 import {LocalStorageService} from '../../services/local-storage.service';
+import {MovieService} from '../../services/movie.service';
 
 import {Popular} from '../../models/popular';
 import {Genre} from '../../models/genre';
@@ -17,7 +17,6 @@ import {Movie} from '../../models/movie';
 })
 export class PopularComponent implements OnInit, OnDestroy {
 
-  // subscription: Subscription[] = [];
   popular: Popular;
   genres: Genre[];
   imageUrl: string;
@@ -25,37 +24,34 @@ export class PopularComponent implements OnInit, OnDestroy {
   constructor(
     private api: ApiService,
     private dbService: MovieDbService,
-    private localStorage: LocalStorageService
-  ) { }
+    private localStorage: LocalStorageService,
+    private movieService: MovieService
+  ) {
+    this.wishList = this.localStorage.getDataFromStorage('wishList') || [];
+    this.genres = this.localStorage.getDataFromStorage('genres');
+  }
 
   ngOnInit() {
     this.api.getData('discover/movie?sort_by=popularity.desc')
       .toPromise()
       .then(val => {
         this.popular = val;
-      })
-      .then(() => this.api.getData('genre/movie/list?language=en-US')
-        .toPromise()
-        .then(genre => {
-        this.genres = genre;
-        this.localStorage.setDataToStorage('genres', this.genres);
-        this.popular['results'].forEach(movie => {
-          movie['genreNames'] = [];
-          movie.genre_ids.forEach(id => {
-            this.genres['genres'].forEach(item => {
-              if (item.id === id) {
-                movie['genreNames'].push(item.name);
-              }
+        this.movieService.transformArray(this.popular.results, this.genres);
+        if (this.wishList.length) {
+          this.popular.results.forEach(movie => {
+            this.wishList.forEach(item => {
+              movie['inWishList'] = movie.id === item.id;
             });
           });
-        });
-      }));
+        }
+      });
+
     this.imageUrl = this.dbService.getConfig().imageApiUrl;
   }
 
   getSelectedMovie(event: Movie): void {
+    event.inWishList = true;
     this.wishList.push(event);
-    console.log(this.wishList);
     this.localStorage.setDataToStorage('wishList', this.wishList);
   }
 

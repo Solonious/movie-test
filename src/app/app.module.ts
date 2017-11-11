@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AppRoutingModule} from './app-routing.module';
 import {MaterialModule} from './modules/material/material.module';
 
@@ -15,6 +16,7 @@ import { PopularComponent } from './containers/popular/popular.component';
 import {ApiService} from './services/api/api.service';
 import { StarRatingModule } from 'angular-star-rating';
 import {LocalStorageService} from './services/local-storage.service';
+import {MovieService} from './services/movie.service';
 
 @NgModule({
   declarations: [
@@ -30,9 +32,11 @@ import {LocalStorageService} from './services/local-storage.service';
     HttpModule,
     AppRoutingModule,
     MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
     StarRatingModule.forRoot()
   ],
-  providers: [MovieDbService, ApiService, LocalStorageService],
+  providers: [MovieDbService, ApiService, LocalStorageService, MovieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

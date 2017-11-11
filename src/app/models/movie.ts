@@ -1,3 +1,5 @@
+import {Genre} from './genre';
+
 export class Movie {
   adult: boolean;
   backdrop_path: string;
@@ -13,4 +15,6 @@ export class Movie {
   video: boolean;
   vote_average: number;
   vote_count: number;
+  inWishList?: boolean;
+  genreNames: Array<Genre>;
 }

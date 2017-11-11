@@ -14,7 +14,7 @@ export class ApiService {
 
 
   getData(param?: string): Observable<any> {
-    let headers = new Headers();
+    const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     const movieDbConfig = this.db.getConfig();
     return this.http.get(`${movieDbConfig.apiUrl}/${param}&api_key=${movieDbConfig.apiKey}`, headers)
