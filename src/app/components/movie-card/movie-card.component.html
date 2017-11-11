@@ -4,9 +4,13 @@
 <div class="container" *ngIf="data">
   <mat-grid-list  cols="5" rowHeight="1:2">
     <mat-grid-tile *ngFor="let item of data; let i=index">
-      <mat-card [class.active]="item.inWishList" class="example-card">
-        <button mat-icon-button class="add-to-favorite" (click)="onClick(item)">
+      <mat-card class="example-card">
+        <span *ngIf="item.inWishList && cardType === 'popular'" class="added-title">Added to wishlist</span>
+        <button *ngIf="cardType === 'popular'" mat-icon-button class="hover-icon" (click)="onClick(item)">
           <mat-icon >favorite</mat-icon>
+        </button>
+        <button *ngIf="cardType === 'wishlist'" mat-icon-button class="hover-icon" (click)="onClick(item)">
+          <mat-icon >close</mat-icon>
         </button>
         <img mat-card-image src={{imageUrl}}{{item.poster_path}} alt="Poster photo">
         <mat-card-content *ngIf="genres">

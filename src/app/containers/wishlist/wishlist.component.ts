@@ -27,4 +27,9 @@ export class WishlistComponent implements OnInit {
 
   ngOnInit() {}
 
+  deletedMovie(event: Movie): void {
+    event.inWishList = false;
+    this.wishLists = this.wishLists.filter(item => item.id !== event.id);
+    this.localStorage.setDataToStorage('wishList', this.wishLists);
+  }
 }

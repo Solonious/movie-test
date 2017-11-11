@@ -12,6 +12,7 @@ export class MovieCardComponent implements OnInit {
   @Input() data?: Movie[];
   @Input() imageUrl?: string;
   @Input() genres?: Genre[];
+  @Input() cardType?: string;
   @Output() selectedMovie = new EventEmitter<Movie>();
   constructor() { }
 

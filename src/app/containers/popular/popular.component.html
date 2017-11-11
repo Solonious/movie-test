@@ -1,3 +1,7 @@
 <div *ngIf="popular">
-  <app-movie-card (selectedMovie)="getSelectedMovie($event)" [data]="popular.results" [imageUrl]="imageUrl" [genres]="genres"></app-movie-card>
+  <app-movie-card [data]="popular.results"
+                  [imageUrl]="imageUrl"
+                  [genres]="genres"
+                  [cardType]="'popular'"
+                  (selectedMovie)="getSelectedMovie($event)"></app-movie-card>
 </div>

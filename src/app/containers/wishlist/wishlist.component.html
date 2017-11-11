@@ -1,3 +1,7 @@
 <div *ngIf="wishLists">
-  <app-movie-card [data]="wishLists" [imageUrl]="imageUrl" [genres]="genres"></app-movie-card>
+  <app-movie-card [data]="wishLists"
+                  [imageUrl]="imageUrl"
+                  [genres]="genres"
+                  [cardType]="'wishlist'"
+                  (selectedMovie)="deletedMovie($event)"></app-movie-card>
 </div>
