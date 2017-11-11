@@ -6,5 +6,9 @@
 </mat-form-field>
 
 <div *ngIf="searchList">
-  <app-movie-card [data]="searchList" [imageUrl]="imageUrl" [genres]="genres"></app-movie-card>
+  <app-movie-card [data]="searchList"
+                  [imageUrl]="imageUrl"
+                  [genres]="genres"
+                  [cardType]="'popular'"
+                  (selectedMovie)="getSelectedMovie($event)"></app-movie-card>
 </div>

@@ -38,15 +38,16 @@ export class PopularComponent implements OnInit, OnDestroy {
       .toPromise()
       .then(val => {
         this.popular = val;
-        this.movieService.transformArray(this.popular.results, this.genres);
+        this.movieService.createGenreNameArray(this.popular.results, this.genres);
         if (this.wishList.length) {
-          this.popular.results.forEach(movie => {
-            this.wishList.forEach(item => {
-              if (movie.id === item.id) {
-                movie['inWishList'] = true;
-              }
-            });
-          });
+          this.movieService.transformResultArray(this.popular.results, this.wishList);
+          // this.popular.results.forEach(movie => {
+          //   this.wishList.forEach(item => {
+          //     if (movie.id === item.id) {
+          //       movie['inWishList'] = true;
+          //     }
+          //   });
+          // });
         }
       });
   }
