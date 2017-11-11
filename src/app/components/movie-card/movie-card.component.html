@@ -12,9 +12,11 @@
         <button *ngIf="cardType === 'wishlist'" mat-icon-button class="hover-icon" (click)="onClick(item)">
           <mat-icon >close</mat-icon>
         </button>
-        <img mat-card-image src={{imageUrl}}{{item.poster_path}} alt="Poster photo">
+        <img class="card-image" mat-card-image src={{imageUrl}}{{item.poster_path}} alt="Poster photo">
         <mat-card-content *ngIf="genres">
-          <h4 class="movie-name">{{item.original_title}}</h4>
+          <div class="card-title">
+            <h4 class="movie-name">{{item.original_title}}</h4>
+          </div>
           <div class="genre-content">
             <a *ngFor="let genre of item.genreNames">{{genre}} </a>
           </div>

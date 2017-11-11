@@ -1,0 +1,15 @@
+.menu-card {
+  width: 100px;
+  min-width: 100px;
+  float: left;
+  min-height: 100vh;
+  margin: 0;
+  position: fixed;
+}
+.menu {
+  list-style-type: none;
+  padding-left: 0;
+  text-align: center;
+}
+
+.material-icons.md-48 { font-size: 48px; }

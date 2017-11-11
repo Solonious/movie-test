@@ -10,41 +10,6 @@ import {LocalStorageService} from './services/local-storage.service';
 })
 export class AppComponent implements OnInit {
 
-  links = [
-    {
-      label: 'user',
-      path: 'user',
-      icon: 'face',
-      type: 'icon'
-    },
-    {
-      label: 'popular',
-      path: 'popular',
-      icon: 'star',
-      type: 'btn',
-      color: 'accent'
-    },
-    {
-      label: 'favorites',
-      path: 'favorites',
-      icon: 'favorites',
-      type: 'btn',
-      color: 'warn'
-    },
-    {
-      label: 'search',
-      path: 'search',
-      icon: 'search',
-      type: 'btn',
-      color: 'primary'
-    },
-    {
-      label: 'wishlist',
-      path: 'wishlist',
-      icon: 'list',
-      type: 'btn',
-      color: 'basic'
-    }];
   movieDbConfig: { apiKey: string; apiUrl: string; imageApiUrl: string };
 
   constructor(

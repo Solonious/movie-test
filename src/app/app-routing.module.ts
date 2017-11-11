@@ -15,14 +15,11 @@ const routes: Routes = [
     component: PopularComponent
   },
   {
-    path: 'favorites',
-    component: FavoritesComponent
-  }, {
     path: 'search',
     component: SearchComponent
   },
   {
-    path: 'wishlist',
+    path: 'watchlist',
     component: WishlistComponent
   }
 ];

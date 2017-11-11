@@ -1,18 +1,20 @@
+// Modules
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AppRoutingModule} from './app-routing.module';
 import {MaterialModule} from './modules/material/material.module';
-
+// Components
 import { AppComponent } from './app.component';
-
-import { MovieDbService } from './services/movie-db/movie-db.service';
+import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { FavoritesComponent } from './containers/favorites/favorites.component';
 import { WishlistComponent } from './containers/wishlist/wishlist.component';
 import { SearchComponent } from './containers/search/search.component';
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
 import { PopularComponent } from './containers/popular/popular.component';
+// Services
+import { MovieDbService } from './services/movie-db/movie-db.service';
 import {ApiService} from './services/api/api.service';
 import { StarRatingModule } from 'angular-star-rating';
 import {LocalStorageService} from './services/local-storage.service';
@@ -25,7 +27,8 @@ import {MovieService} from './services/movie.service';
     WishlistComponent,
     SearchComponent,
     MovieCardComponent,
-    PopularComponent
+    PopularComponent,
+    SideMenuComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,12 @@ import {MovieService} from './services/movie.service';
     ReactiveFormsModule,
     StarRatingModule.forRoot()
   ],
-  providers: [MovieDbService, ApiService, LocalStorageService, MovieService],
+  providers: [
+    MovieDbService,
+    ApiService,
+    LocalStorageService,
+    MovieService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

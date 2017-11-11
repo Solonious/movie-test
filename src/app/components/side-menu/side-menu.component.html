@@ -1,0 +1,11 @@
+<mat-card class="menu-card">
+  <ul class="menu">
+    <li *ngFor="let item of menu">
+      <button *ngIf="item.type === 'btn'" mat-fab  color="{{item.color}}" [routerLink]="item.path">
+        <mat-icon >{{item.icon}}</mat-icon>
+      </button>
+      <i *ngIf="item.type === 'icon'" class="material-icons md-48">{{item.icon}}</i>
+      <p>{{item.label}}</p>
+    </li>
+  </ul>
+</mat-card>

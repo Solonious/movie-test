@@ -36,6 +36,17 @@
   max-height: 510px;
   position: relative;
 }
+.card-image {
+  max-height: 370px;
+  margin-bottom: 5px;
+}
+.card-title {
+  height: 50px;
+}
+.card-title h4 {
+  display: inline-block;
+  margin: 0;
+}
 .mat-card:hover .hover-icon {
   opacity: 1;
   transition: 600ms;
