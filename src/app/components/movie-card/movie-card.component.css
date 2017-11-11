@@ -40,6 +40,10 @@
   opacity: 1;
   transition: 600ms;
 }
+.card-disabled {
+  pointer-events: none;
+  filter: grayscale(10);
+}
 .hover-icon {
   opacity: 0;
   position: absolute;

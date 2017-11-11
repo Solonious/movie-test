@@ -42,7 +42,9 @@ export class PopularComponent implements OnInit, OnDestroy {
         if (this.wishList.length) {
           this.popular.results.forEach(movie => {
             this.wishList.forEach(item => {
-              movie['inWishList'] = movie.id === item.id;
+              if (movie.id === item.id) {
+                movie['inWishList'] = true;
+              }
             });
           });
         }
