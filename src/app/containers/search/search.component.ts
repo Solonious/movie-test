@@ -58,9 +58,14 @@ export class SearchComponent implements OnInit, OnDestroy {
     this.subscription.forEach(item => item.unsubscribe());
   }
 
+  addSelectedMovie(event: Movie): void {
+    event.inWishList = true;
+    this.wishList.push(event);
+    this.localStorage.setDataToStorage('wishList', this.wishList);
+  }
+
   clearValue(): void {
     this.search.setValue('');
     this.searchList = [];
   }
-
 }

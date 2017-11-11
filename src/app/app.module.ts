@@ -8,7 +8,6 @@ import {MaterialModule} from './modules/material/material.module';
 // Components
 import { AppComponent } from './app.component';
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
-import { FavoritesComponent } from './containers/favorites/favorites.component';
 import { WishlistComponent } from './containers/wishlist/wishlist.component';
 import { SearchComponent } from './containers/search/search.component';
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
@@ -23,7 +22,6 @@ import {MovieService} from './services/movie.service';
 @NgModule({
   declarations: [
     AppComponent,
-    FavoritesComponent,
     WishlistComponent,
     SearchComponent,
     MovieCardComponent,

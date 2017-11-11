@@ -12,5 +12,4 @@ export class LocalStorageService {
     const movie = JSON.stringify(value);
     localStorage.setItem(key, movie);
   }
-
 }

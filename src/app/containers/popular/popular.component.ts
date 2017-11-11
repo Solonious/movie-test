@@ -41,18 +41,11 @@ export class PopularComponent implements OnInit, OnDestroy {
         this.movieService.createGenreNameArray(this.popular.results, this.genres);
         if (this.wishList.length) {
           this.movieService.transformResultArray(this.popular.results, this.wishList);
-          // this.popular.results.forEach(movie => {
-          //   this.wishList.forEach(item => {
-          //     if (movie.id === item.id) {
-          //       movie['inWishList'] = true;
-          //     }
-          //   });
-          // });
         }
       });
   }
 
-  getSelectedMovie(event: Movie): void {
+  addSelectedMovie(event: Movie): void {
     event.inWishList = true;
     this.wishList.push(event);
     this.localStorage.setDataToStorage('wishList', this.wishList);

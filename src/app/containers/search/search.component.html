@@ -4,11 +4,10 @@
     <mat-icon>close</mat-icon>
   </button>
 </mat-form-field>
-
 <div *ngIf="searchList">
   <app-movie-card [data]="searchList"
                   [imageUrl]="imageUrl"
                   [genres]="genres"
                   [cardType]="'popular'"
-                  (selectedMovie)="getSelectedMovie($event)"></app-movie-card>
+                  (selectedMovie)="addSelectedMovie($event)"></app-movie-card>
 </div>

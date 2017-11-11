@@ -5,7 +5,7 @@
   <mat-grid-list  cols="5" rowHeight="1:2">
     <mat-grid-tile *ngFor="let item of data;">
       <mat-card class="example-card" [class.card-disabled]="item.inWishList && cardType === 'popular'">
-        <span *ngIf="item.inWishList && cardType === 'popular'" class="added-title">Added to wishlist</span>
+        <span *ngIf="item.inWishList && cardType === 'popular'" class="added-title">Added to watchlist</span>
         <button *ngIf="cardType === 'popular'" mat-icon-button class="hover-icon" (click)="onClick(item)">
           <mat-icon>playlist_add</mat-icon>
         </button>

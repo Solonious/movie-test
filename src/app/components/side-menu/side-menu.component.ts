@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import {Menu} from '../../models/menu';
 
 @Component({
   selector: 'app-side-menu',
@@ -7,36 +8,37 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SideMenuComponent implements OnInit {
 
-  menu = [
-    {
-      label: 'user',
+  menu: Array<Menu>;
+
+  constructor() {
+    this.menu = [{
+      label: 'USER',
       path: 'user',
       icon: 'face',
       type: 'icon'
     },
     {
-      label: 'popular',
+      label: 'POPULAR',
       path: 'popular',
       icon: 'star',
       type: 'btn',
       color: 'accent'
     },
     {
-      label: 'search',
+      label: 'SEARCH',
       path: 'search',
       icon: 'search',
       type: 'btn',
       color: 'primary'
     },
     {
-      label: 'watchlist',
+      label: 'WATCHLIST',
       path: 'watchlist',
       icon: 'list',
       type: 'btn',
       color: 'basic'
     }];
-  // @Input() menu: any[];
-  constructor() { }
+  }
 
   ngOnInit() {
   }
