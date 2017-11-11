@@ -32,7 +32,6 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit() {
-
     this.search.valueChanges.subscribe(val => {
       const query = encodeURI(val) || '';
       this.api.getData(`search/movie?query=${query}`)

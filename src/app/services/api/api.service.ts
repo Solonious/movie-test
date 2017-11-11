@@ -12,7 +12,6 @@ export class ApiService {
     private db: MovieDbService
   ) {}
 
-
   getData(param?: string): Observable<any> {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');

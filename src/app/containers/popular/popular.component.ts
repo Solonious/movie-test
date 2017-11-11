@@ -1,4 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
+
 import { ApiService } from '../../services/api/api.service';
 import {MovieDbService} from '../../services/movie-db/movie-db.service';
 import {LocalStorageService} from '../../services/local-storage.service';
@@ -29,6 +30,7 @@ export class PopularComponent implements OnInit, OnDestroy {
   ) {
     this.wishList = this.localStorage.getDataFromStorage('wishList') || [];
     this.genres = this.localStorage.getDataFromStorage('genres');
+    this.imageUrl = this.dbService.getConfig().imageApiUrl;
   }
 
   ngOnInit() {
@@ -45,8 +47,6 @@ export class PopularComponent implements OnInit, OnDestroy {
           });
         }
       });
-
-    this.imageUrl = this.dbService.getConfig().imageApiUrl;
   }
 
   getSelectedMovie(event: Movie): void {
