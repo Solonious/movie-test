@@ -4,6 +4,9 @@
     <mat-icon>close</mat-icon>
   </button>
 </mat-form-field>
+<div class="center">
+  <app-loader [loading]="loading"></app-loader>
+</div>
 <div *ngIf="searchList">
   <app-movie-card [data]="searchList"
                   [imageUrl]="imageUrl"

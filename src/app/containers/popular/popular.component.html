@@ -1,3 +1,6 @@
+<div class="center">
+  <app-loader [loading]="loading"></app-loader>
+</div>
 <div *ngIf="popular">
   <app-movie-card [data]="popular.results"
                   [imageUrl]="imageUrl"

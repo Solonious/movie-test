@@ -18,6 +18,7 @@ import {ApiService} from './services/api/api.service';
 import { StarRatingModule } from 'angular-star-rating';
 import {LocalStorageService} from './services/local-storage.service';
 import {MovieService} from './services/movie.service';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {MovieService} from './services/movie.service';
     SearchComponent,
     MovieCardComponent,
     PopularComponent,
-    SideMenuComponent
+    SideMenuComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

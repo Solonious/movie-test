@@ -22,7 +22,7 @@ export class SearchComponent implements OnInit, OnDestroy {
   wishList: Movie[];
   imageUrl: string;
   genres: Genre[];
-
+  loading = false;
   private subscription: Subscription[] = [];
 
   constructor(
@@ -39,7 +39,9 @@ export class SearchComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.search.valueChanges.subscribe(val => {
+      this.loading = true;
       if (!val) {
+        this.loading = false;
         return false;
       }
       const query = `query=${encodeURI(val.trim())}`;
@@ -50,6 +52,7 @@ export class SearchComponent implements OnInit, OnDestroy {
           if (this.wishList.length) {
             this.movieService.transformResultArray(this.searchList, this.wishList);
           }
+          this.loading = false;
         }, err => console.log(err)));
     }, err => console.log(err));
   }

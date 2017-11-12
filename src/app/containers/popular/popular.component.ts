@@ -22,6 +22,8 @@ export class PopularComponent implements OnInit, OnDestroy {
   genres: Genre[];
   imageUrl: string;
   wishList: Movie[] = [];
+  loading = false;
+
   constructor(
     private api: ApiService,
     private dbService: MovieDbService,
@@ -34,6 +36,7 @@ export class PopularComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.loading = true;
     this.api.getData('discover/movie', 'sort_by=popularity.desc')
       .toPromise()
       .then(val => {
@@ -42,7 +45,8 @@ export class PopularComponent implements OnInit, OnDestroy {
         if (this.wishList.length) {
           this.movieService.transformResultArray(this.popular.results, this.wishList);
         }
-      })
+        this.loading = false;
+      }).then(() => this.loading = false)
       .catch(err => console.log(`Popular container has ${err}`));
   }
 
