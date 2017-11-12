@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.movieDbConfig = this.movieDbService.getConfig();
-    this.api.getData('genre/movie/list?language=en-US')
+    this.api.getData('genre/movie/list')
       .toPromise()
       .then(genre => {
         this.localStorage.setDataToStorage('genres', genre);

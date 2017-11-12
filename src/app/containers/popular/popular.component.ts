@@ -34,7 +34,7 @@ export class PopularComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.api.getData('discover/movie?sort_by=popularity.desc')
+    this.api.getData('discover/movie', 'sort_by=popularity.desc')
       .toPromise()
       .then(val => {
         this.popular = val;

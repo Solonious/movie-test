@@ -39,11 +39,11 @@ export class SearchComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.search.valueChanges.subscribe(val => {
-      const query = encodeURI(val);
-      if (!query) {
+      if (!val) {
         return false;
       }
-      this.subscription.push(this.api.getData(`search/movie?query=${query}`)
+      const query = `query=${encodeURI(val.trim())}`;
+      this.subscription.push(this.api.getData('search/movie', query)
         .subscribe(movie => {
           this.searchList = movie.results;
           this.movieService.createGenreNameArray(this.searchList, this.genres);

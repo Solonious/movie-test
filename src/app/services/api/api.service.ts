@@ -12,11 +12,11 @@ export class ApiService {
     private db: MovieDbService
   ) {}
 
-  getData(param?: string): Observable<any> {
+  getData(url: string, param?: string): Observable<any> {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     const movieDbConfig = this.db.getConfig();
-    return this.http.get(`${movieDbConfig.apiUrl}/${param}&api_key=${movieDbConfig.apiKey}`, headers)
+    return this.http.get(`${movieDbConfig.apiUrl}/${url}?api_key=${movieDbConfig.apiKey}&${param}`, headers)
       .map(res => res.json());
   }
 }
