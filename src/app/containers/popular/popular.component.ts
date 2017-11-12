@@ -42,7 +42,8 @@ export class PopularComponent implements OnInit, OnDestroy {
         if (this.wishList.length) {
           this.movieService.transformResultArray(this.popular.results, this.wishList);
         }
-      });
+      })
+      .catch(err => console.log(`Popular container has ${err}`));
   }
 
   addSelectedMovie(event: Movie): void {

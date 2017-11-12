@@ -50,8 +50,8 @@ export class SearchComponent implements OnInit, OnDestroy {
           if (this.wishList.length) {
             this.movieService.transformResultArray(this.searchList, this.wishList);
           }
-        }));
-    });
+        }, err => console.log(err)));
+    }, err => console.log(err));
   }
 
   ngOnDestroy() {
