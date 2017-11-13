@@ -2,6 +2,16 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.3.
 
+## How to run
+
+In terminal `git clone https://github.com/Solonious/movie-test.git`
+
+`cd movie-test && npm install`
+
+`npm start` and navigate to `http://localhost:5000/` or [click here](http://localhost:5000/)
+
+Have FUN!!!
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
